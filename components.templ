@@ -1,0 +1,62 @@
+package main 
+
+import "strconv"
+
+script TypingEffect(word, id string, delay int) {
+let index = 0;
+  const displayArea = document.getElementById(id);
+
+  const intervalId = setInterval(function () {
+    if (index < word.length) {
+      displayArea.textContent += word[index];
+      index++;
+    } else {
+      clearInterval(intervalId);
+    }
+  }, delay);
+}
+
+templ Layout(route string) {
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GOTHAM</title>
+    <script src="static/js/htmx.min.js"></script>
+    <link href="static/css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="font-mono bg-slate-900" >
+    <main id="view" hx-swap="innerHTML" hx-get={route} hx-trigger="load"></main>
+</body>
+
+</html>
+}
+
+templ Home(title, message string, global int) {
+    <div class="text-yellow-400 w-screen h-screen flex flex-col gap-8 items-center justify-center">
+        @TypingEffect(title, "head-title", 100)
+        <h1 id="head-title" class="text-5xl font-bold"></h1>
+        @TypingEffect(message, "message", 80)
+        <p id="message" class="text-base w-1/4 text-gray-100 text-center" >
+        </p>
+        @Count(global)
+        <span id="ad" class="opacity-60  hover:opacity-100 text-sm text-slate-300 italic ">more examples at 
+            <a class="py-2 text-sky-500 cursor-pointer" target="#" href="https://github.com/morethancoder/hello_gotham">
+                hello_gotham</a> 
+        </span>
+
+    </div>
+}
+
+
+templ Count(global int) {
+    <div hx-post="/count" hx-trigger="click" hx-swap="innerHTML" hx-target="#count"
+        class=" flex items-center justify-center">
+        <span>Database count >> </span>
+        <span class="cursor-pointer select-none hover:text-sky-300 font-bold p-4 
+        text-sky-500 text-4xl" id="count">{strconv.Itoa(global)}</span>
+    </div>
+} 

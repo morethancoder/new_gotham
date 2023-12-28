@@ -1,0 +1,3 @@
+DB_USER="Your mariadb user here"
+DB_PASS="Your mariadb password here"
+DB_NAME="Your database name here"

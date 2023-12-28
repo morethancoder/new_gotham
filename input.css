@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.button { 
+    @apply cursor-pointer hover:bg-blue-300 active:bg-green-500
+        text-center text-slate-500 font-bold uppercase bg-blue-500
+        select-none p-2 rounded-lg 
+}
