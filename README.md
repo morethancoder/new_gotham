@@ -50,6 +50,10 @@ cd new_project && mv dotenv .env
 ```bash
 go mod tidy
 ```
+* templ:
+```bash
+make templ
+```
 * test:
 ```bash
 make test
