@@ -15,7 +15,7 @@ brew install go git mariadb node
 ```
 
 
-* For linux or windows users kindly follow offical instructions:
+* For linux or windows users kindly follow official instructions:
 
 - [Golang](https://golang.org/dl/)
 - [Git](https://git-scm.com/)
