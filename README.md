@@ -46,6 +46,10 @@ git clone https://github.com/morethancoder/new_gotham
 ```bash
 cd new_project && mv dotenv .env
 ```
+* make it yours, edit go.mod module name (optional):
+```bash
+go mod edit -module="your project name"
+```
 * tidy project go dependencies:
 ```bash
 go mod tidy
